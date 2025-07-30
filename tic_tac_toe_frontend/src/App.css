@@ -1,0 +1,126 @@
+/* Theme Color Overrides */
+:root {
+  --primary: #1976d2;
+  --accent: #ff4081;
+  --secondary: #ffffff;
+  --board-bg: #eaf0fa;
+  --square-border: #b7cef5;
+  --shadow: 0 8px 32px rgba(25, 118, 210, 0.10);
+}
+
+/* Main App container tweaks handled inline in App.js */
+
+.ttt-container {
+  background: #f6f9fc;
+  max-width: 350px;
+  width: 98vw;
+  box-sizing: border-box;
+}
+
+/* Status text */
+.ttt-status {
+  min-height: 2.2em;
+  letter-spacing: 0.01em;
+}
+
+/* Tic Tac Toe Board */
+.ttt-board {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0 auto;
+  width: 264px;
+  background: var(--board-bg);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 8px;
+}
+
+.ttt-board-row {
+  display: flex;
+  gap: 4px;
+}
+
+.ttt-square {
+  width: 80px;
+  height: 80px;
+  background: var(--secondary);
+  border: 2.2px solid var(--square-border);
+  border-radius: 10px;
+  font-size: 2.20rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background 0.14s, border 0.19s, color 0.19s;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.05);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.1em;
+  user-select: none;
+}
+
+.ttt-square:active:enabled {
+  background: #dbeafe;
+  color: var(--accent);
+}
+
+/* Highlight winner squares */
+.ttt-square[style*="background-color: rgb(255, 64, 129)"], .ttt-square.highlight {
+  background: var(--accent) !important;
+  color: var(--secondary) !important;
+  border-color: var(--accent) !important;
+}
+
+.ttt-controls {
+  width: 100%;
+}
+
+.ttt-restart-btn {
+  margin-top: 0;
+  transition: filter 0.13s;
+}
+
+.ttt-restart-btn:hover, .ttt-restart-btn:focus {
+  filter: brightness(1.12);
+}
+
+.ttt-players-row {
+  margin-top: 16px;
+  width: 92%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+@media (max-width: 480px) {
+  .ttt-board {
+    width: 98vw;
+    max-width: 98vw;
+    min-width: 240px;
+  }
+  .ttt-square {
+    width: 22vw;
+    height: 22vw;
+    font-size: 1.8rem;
+    min-width: 58px;
+    min-height: 58px;
+    max-width: 82px;
+    max-height: 82px;
+  }
+  .ttt-container {
+    padding: 12vw 1vw 10vw 1vw;
+    border-radius: 2.50em;
+  }
+  .ttt-status {
+    font-size: 1.1em !important;
+  }
+  .ttt-players-row {
+    font-size: 0.99em; gap: 9vw;
+  }
+}
+
+body {
+  background: #f6f5fc;
+}
